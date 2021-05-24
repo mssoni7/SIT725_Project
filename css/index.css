@@ -1,0 +1,33 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+div {
+  position: relative;
+  height: 100%;
+}
+img {
+  width: 100px;
+  position: absolute;
+  top: 47%;
+  left: 47%;
+  transform: translate(-53%, -53%);
+  animation: zoominout 5s infinite;
+}
+
+@keyframes zoominout {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(2, 2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
