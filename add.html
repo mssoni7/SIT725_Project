@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celebration's Countdown</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/site.webmanifest" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/add.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html" class="active">
+        <img src="images/favicon-32x32.png" alt="Celebrations Countdown" />
+      </a>
+      <div class="header-right">
+        <a href="dash.html">
+          <img src="images/dashboard.png" alt="dashboard" />
+        </a>
+        <a class="active" href="add.html">
+          <img src="images/add.png" alt="profile" />
+        </a>
+        <a href="profile.html">
+          <img src="images/profile.png" alt="profile" />
+        </a>
+        <a href="noti.html">
+          <img src="images/noti.png" alt="profile" />
+        </a>
+      </div>
+    </div>
+    <form action="dash.html" id="adduser">
+      <table>
+        <!-- Header of the table -->
+        <thead>
+          <tr>
+            <th colspan="2"><h2>ADD AN OCASSION</h2></th>
+          </tr>
+        </thead>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- First Name of the table -->
+        <tr>
+          <td>
+            <label>FIRST NAME</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              class="fname"
+              placeholder="ENTER FIRST NAME"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Last Name of the table -->
+        <tr>
+          <td>
+            <label>LAST NAME</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="lname"
+              placeholder="ENTER LAST NAME"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Contact details of the table -->
+        <tr>
+          <td>
+            <label for="number">MOBILE NO</label>
+          </td>
+          <td>
+            <input
+              type="tel"
+              id="number"
+              placeholder="0XXX XXX XXX FORMAT"
+              pattern="0[0-9]{3} [0-9]{3} [0-9]{3}"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Date of The Ocassion -->
+        <tr>
+          <td>
+            <label>OCASSION DATE</label>
+          </td>
+          <td>
+            <input type="date" name="date" id="date" />
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Gender -->
+        <tr>
+          <td>
+            <label>GENDER</label>
+          </td>
+          <td>
+            <input type="radio" id="male" name="gender" value="0" />
+            <label>MALE</label>
+            <input type="radio" id="female" name="gender" value="1" />
+            <label>FEMALE</label>
+            <input type="radio" id="other" name="gender" value="2" />
+            <label>OTHER</label>
+          </td>
+        </tr>
+
+        <!-- Ocassion -->
+        <tr>
+          <td>
+            <label>OCASSION</label>
+          </td>
+          <td>
+            <input type="radio" id="birthday" name="ocassion" value="0" />
+            <label>BIRTHDAY</label>
+            <input type="radio" id="anniversary" name="ocassion" value="1" />
+            <label>ANNIVERSARY</label>
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Note -->
+        <tr>
+          <td>
+            <label for="Note">NOTE</label>
+          </td>
+          <td>
+            <textarea
+              type="text"
+              name="note"
+              id="fyi"
+              placeholder="ENTER SOME DETAILS TO REMEMBER THIS OCASSION OR THE PERSON"
+            ></textarea>
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+          <th colspan="2">
+            <input class="button" type="reset" value="Reset" />
+            <input class="button" type="submit" value="Submit" />
+          </th>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

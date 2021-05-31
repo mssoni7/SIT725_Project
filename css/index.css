@@ -14,20 +14,20 @@ div {
 img {
   width: 100px;
   position: absolute;
-  top: 47%;
-  left: 47%;
-  transform: translate(-53%, -53%);
+  top: 48%;
+  left: 48%;
+  transform: translate(-52%, -52%);
   animation: zoominout 5s infinite;
 }
 
 @keyframes zoominout {
   0% {
-    transform: scale(1, 1);
+    transform: scale(0.5, 0.5);
   }
   50% {
-    transform: scale(2, 2);
+    transform: scale(1, 1);
   }
   100% {
-    transform: scale(1, 1);
+    transform: scale(0.5, 0.5);
   }
 }
