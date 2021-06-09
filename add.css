@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  background-image: url("/img/26583.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+form {
+  width: 45%;
+  height: 100%;
+  margin: 7% auto;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+input[type="radio"] {
+  padding: 5px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: whitesmoke;
+  padding: 5px 10px 5px 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 0.4cm;
+  border-radius: 10px;
+}
+
+hr {
+  height: 1px;
+  background-color: black;
+}

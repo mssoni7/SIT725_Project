@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<%- include('utility.ejs') %>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celebration's Countdown</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dash.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="active">
+        <img src="img/favicon-32x32.png" alt="Celebrations Countdown" />
+      </a>
+      <div class="header-right">
+        <a class="active" href="/dash">
+          <img src="img/dashboard.png" alt="Dashboard" />
+        </a>
+        <a href="/add">
+          <img src="img/add.png" alt="Add Occasion" />
+        </a>
+        <a href="/noti">
+          <img src="img/noti.png" alt="Notification" />
+        </a>
+      </div>
+    </div>
+    <script>
+      window.onload = function startCounter() {
+        var rows = document.getElementsByName("date_counter");
+        rows.forEach((r) => {
+          var counterValue = setCounter(
+            r.getAttribute("id"),
+            r.getAttribute("data-dob")
+          );
+          r.innerText = counterValue;
+        });
+      };
+
+      function setCounter(id, inputDate) {
+        const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+
+        // let inputDate = "Sep 30, 2021 00:00:00";
+        let dob = new Date(inputDate);
+        let td = new Date();
+        let upcomingBday = new Date(
+          td.getFullYear(),
+          dob.getMonth(),
+          dob.getDate()
+        );
+        if (td.getTime() > upcomingBday.getTime()) {
+          upcomingBday.setFullYear(upcomingBday.getFullYear() + 1);
+        }
+        console.log("Birthday: ", upcomingBday);
+
+        let countDown = new Date(upcomingBday).getTime();
+        var x = setInterval(function () {
+          let now = new Date().getTime(),
+            distance = countDown - now;
+
+          var ndays = Math.floor(distance / day);
+          var nhours = Math.floor((distance % day) / hour);
+          var nminutes = Math.floor((distance % hour) / minute);
+          var nseconds = Math.floor((distance % minute) / second);
+
+          let count = `${ndays} D ${nhours} H ${nminutes} M ${nseconds} S`;
+          document.getElementById(id).innerText = count;
+
+          //do something later when date is reached
+          if (distance < 0) {
+            document.getElementById(id).innerText = "- - - -";
+            clearInterval(x);
+          }
+          //seconds
+        }, 0);
+      }
+    </script>
+    <table class="users">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Mobile No</th>
+          <th>Note</th>
+          <th>Occasion Date</th>
+          <th>Type</th>
+          <th>Celebration Countdown</th>
+          <th>Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% occasionList.forEach(data => {%>
+        <tr>
+          <td><%= data.firstname %></td>
+          <td><%= data.lastname %></td>
+          <td style="text-align: center">
+            <a class="tooltip">
+              Call Now
+              <span class="tooltiptext"><%= data.mobileno %></span>
+            </a>
+          </td>
+          <td style="text-align: center">
+            <a class="tooltip">
+              See Details
+              <span class="tooltiptext"><%= data.note %></span>
+            </a>
+          </td>
+          <td style="text-align: center"><%= validateDate(data.date) %></td>
+          <td><%= data.occasion %></td>
+          <td
+            name="date_counter"
+            id="<%= data._id%>"
+            data-dob="<%=data.date%>"
+            style="text-align: center"
+          ></td>
+          <td style="text-align: center"></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
