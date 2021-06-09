@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.chatBox {
+  width: 100%;
+  padding: 21vw;
+  border: solid #fca446;
+}
+
+.chatType {
+  padding: 1vw;
+  border: solid #fca446;
+}
+
+.message {
+  width: 88vw;
+}

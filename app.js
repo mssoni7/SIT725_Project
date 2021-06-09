@@ -1,10 +1,13 @@
 //imports
 //var favicon = require("serve-favicon");
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
-const port = 3000;
 const bodyParser = require("body-parser");
+const app = express();
+const server = require("http").createServer(app);
+const port = 3000;
+const io = require("socket.io")(server, { cors: { origin: "*" } });
+
 // create a data schema
 const OccasionsSchema = new mongoose.Schema({
   firstname: { type: String, required: true },
@@ -54,7 +57,9 @@ app.get("/add", (req, res) => {
   res.render("add");
 });
 
-//module.exports = occasion;
+app.get("/noti", (req, res) => {
+  res.render("noti");
+});
 
 // saving data from add.ejs to mongodb
 app.post("/add", (req, res) => {
@@ -71,19 +76,20 @@ app.post("/add", (req, res) => {
   res.redirect("/dash");
 });
 
-//listening to port 3000
-app.listen(port, function () {
+// //listening to port 3000
+// app.listen(port, function () {
+//   console.log("Server is Running on port " + port);
+// });
+
+//socket code
+server.listen(port, () => {
   console.log("Server is Running on port " + port);
 });
 
-// function for validating date
-function validateDate(fdate) {
-  fdate = new Date(fdate);
-  fdate =
-    fdate.getDate().toString() +
-    "/" +
-    (fdate.getMonth() + 1).toString() +
-    "/" +
-    fdate.getFullYear().toString();
-  return fdate;
-}
+io.on("connection", (socket) => {
+  console.log("User Conencted" + socket.id);
+
+  socket.on("message", (data) => {
+    socket.broadcast.emit("message", data);
+  });
+});
