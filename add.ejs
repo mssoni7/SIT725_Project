@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celebration's Countdown</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/add.css" />
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="active">
+        <img src="img/favicon-32x32.png" alt="Celebrations Countdown" />
+      </a>
+      <div class="header-right">
+        <a href="/dash">
+          <img src="img/dashboard.png" alt="dashboard" />
+        </a>
+        <a class="active" href="/add">
+          <img src="img/add.png" alt="Add Occasion" />
+        </a>
+        <a href="/noti">
+          <img src="img/noti.png" alt="Notifications" />
+        </a>
+      </div>
+    </div>
+    <form action="/add" method="POST" id="adduser">
+      <table>
+        <!-- Header of the table -->
+        <thead>
+          <tr>
+            <th colspan="2"><h2>ADD AN OCCASION</h2></th>
+          </tr>
+        </thead>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- First Name of the table -->
+        <tr>
+          <td>
+            <label>FIRST NAME</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              name="fname"
+              placeholder="ENTER FIRST NAME"
+              maxlength="15"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Last Name of the table -->
+        <tr>
+          <td>
+            <label>LAST NAME</label>
+          </td>
+          <td>
+            <input
+              type="text"
+              name="lname"
+              placeholder="ENTER LAST NAME"
+              maxlength="15"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Contact details of the table -->
+        <tr>
+          <td>
+            <label for="number">MOBILE NO</label>
+          </td>
+          <td>
+            <input
+              type="tel"
+              name="mono"
+              placeholder="04XXXXXXXX FORMAT-NO-SPACE"
+              pattern="0[4]{1}[0-9]{2}[0-9]{3}[0-9]{3}"
+              required
+            />
+          </td>
+        </tr>
+
+        <!-- Date of The Ocassion -->
+        <tr>
+          <td>
+            <label>OCCASION DATE</label>
+          </td>
+          <td>
+            <input type="date" name="doo" id="date" />
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Gender -->
+        <tr>
+          <td>
+            <label>GENDER</label>
+          </td>
+          <td>
+            <input type="radio" value="Male" name="gen" id="2" />
+            <label>MALE</label>
+            <input type="radio" value="Female" name="gen" id="1" />
+            <label>FEMALE</label>
+            <input type="radio" value="Other" name="gen" id="0" />
+            <label>OTHER</label>
+          </td>
+        </tr>
+
+        <!-- Ocassion -->
+        <tr>
+          <td>
+            <label>OCCASION</label>
+          </td>
+          <td>
+            <input type="radio" value="Birthday" name="type" id="1" />
+            <label>BIRTHDAY</label>
+            <input type="radio" value="Anniversary" name="type" id="0" />
+            <label>ANNIVERSARY</label>
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Note -->
+        <tr>
+          <td>
+            <label for="Note">NOTE</label>
+          </td>
+          <td>
+            <textarea
+              type="text"
+              name="onote"
+              id="fyi"
+              maxlength="40"
+              placeholder="ENTER SOME DETAILS TO REMEMBER THE PERSON"
+            ></textarea>
+          </td>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+
+        <!-- Buttons -->
+        <tr>
+          <th colspan="2">
+            <input class="button" type="reset" value="Reset" />
+            <input class="button" type="submit" value="Submit" />
+          </th>
+        </tr>
+
+        <!-- Horizontal line -->
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
