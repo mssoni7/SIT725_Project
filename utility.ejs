@@ -1,11 +1,3 @@
-<% validateDate = function(e) { e = new Date(e); if (e.getDate() <= 9 &
-e.getMonth() <= 9 ) { e = 0 + e.getDate().toString() + "/" + (0 + (e.getMonth()
-+1).toString()) + "/" + e.getFullYear().toString(); return e;} else if
-(e.getDate() > 9 & e.getMonth() < 10 ) { e = e.getDate().toString() + "/" + (0 +
-(e.getMonth() +1).toString()) + "/" + e.getFullYear().toString(); return e; }
-else if (e.getDate() < 10 & e.getMonth() > 9 ) { e = 0 + e.getDate().toString()
-+ "/" + ((e.getMonth() +1).toString()) + "/" + e.getFullYear().toString();
-return e; } else if (e.getDate() >= 10 & e.getMonth() >= 10 ) { e =
-e.getDate().toString() + "/" + ((e.getMonth() +1).toString()) + "/" +
-e.getFullYear().toString(); return e; }else { e = e.getDate().toString() + "/" +
-(e.getMonth() + 1).toString() + "/" + e.getFullYear().toString(); return e; }}%>
+<% validateDate = function(e) { e = new Date(e); e = ('0' +
+e.getDate()).slice(-2) +'/'+ ('0' + (e.getMonth()+1)).slice(-2) + '/'+
+e.getFullYear(); return(e); }%>

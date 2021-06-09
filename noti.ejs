@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Celebration's Countdown</title>
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/noti.css" />
+
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
   </head>
   <body>
     <div class="header">
@@ -27,5 +30,27 @@
         </a>
       </div>
     </div>
+    <div class="chatBox">
+      <h1></h1>
+    </div>
+    <div class="chatType">
+      <input type="text" name="chat" class="message" />
+      <button onclick="sendMessage()">Send Message</button>
+    </div>
+
+    <script>
+      const socket = io("http://localhost:3000");
+      socket.on("connection");
+
+      socket.on("message", (data) => {
+        document.querySelector("h1").innerHTML = data;
+      });
+
+      const sendMessage = () => {
+        const messageInput = document.querySelector(".message");
+        const message = messageInput.value;
+        socket.emit("message", message);
+      };
+    </script>
   </body>
 </html>
